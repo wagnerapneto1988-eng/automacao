@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAP Prospecção V1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>WAP Prospecção</h1>
+      <p>V1 • Gestão comercial para pizzarias</p>
+    </div>
+    <button id="btnNovo" class="primary">+ Novo potencial cliente</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">Painel Comercial</span>
+        <h2>Organize contatos, gere abordagens e acompanhe oportunidades.</h2>
+        <p>Uma ferramenta simples para transformar prospecção em processo.</p>
+      </div>
+    </section>
+
+    <section class="cards" id="cardsResumo">
+      <article class="card"><span>Total</span><strong id="mTotal">0</strong></article>
+      <article class="card"><span>Contatados</span><strong id="mContatados">0</strong></article>
+      <article class="card"><span>Responderam</span><strong id="mResponderam">0</strong></article>
+      <article class="card"><span>Propostas</span><strong id="mPropostas">0</strong></article>
+      <article class="card destaque"><span>Fechados</span><strong id="mFechados">0</strong></article>
+    </section>
+
+    <section class="toolbar">
+      <input id="busca" type="search" placeholder="Buscar por pizzaria, bairro ou cidade..." />
+      <select id="filtroStatus">
+        <option value="">Todos os status</option>
+        <option>Novo</option>
+        <option>Contato realizado</option>
+        <option>Respondeu</option>
+        <option>Apresentação enviada</option>
+        <option>Negociação</option>
+        <option>Fechado</option>
+        <option>Sem interesse</option>
+      </select>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h3>Potenciais clientes</h3>
+        <span id="contadorLeads">0 registros</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Local</th>
+              <th>Contato</th>
+              <th>Oportunidade</th>
+              <th>Status</th>
+              <th>Follow-up</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listaLeads"></tbody>
+        </table>
+      </div>
+      <div id="vazio" class="empty">
+        <h4>Nenhum potencial cliente cadastrado.</h4>
+        <p>Cadastre a primeira pizzaria para começar sua prospecção.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="modalLead">
+    <form id="formLead" method="dialog">
+      <div class="modal-head">
+        <div>
+          <small>Cadastro comercial</small>
+          <h3 id="tituloModal">Novo potencial cliente</h3>
+        </div>
+        <button type="button" class="icon-btn" id="fecharModal">×</button>
+      </div>
+
+      <input type="hidden" id="leadId" />
+
+      <div class="grid2">
+        <label>Nome da pizzaria
+          <input id="empresa" required placeholder="Ex.: Pizzaria Bella Massa" />
+        </label>
+        <label>Responsável
+          <input id="responsavel" placeholder="Ex.: Carlos" />
+        </label>
+        <label>WhatsApp
+          <input id="whatsapp" placeholder="5511999999999" />
+        </label>
+        <label>Instagram / Site
+          <input id="canal" placeholder="@pizzaria ou site" />
+        </label>
+        <label>Bairro
+          <input id="bairro" placeholder="Ex.: Perdizes" />
+        </label>
+        <label>Cidade
+          <input id="cidade" placeholder="Ex.: São Paulo" />
+        </label>
+      </div>
+
+      <label>Oportunidade identificada
+        <select id="oportunidade">
+          <option>Sem site</option>
+          <option>Site desatualizado</option>
+          <option>Somente Instagram</option>
+          <option>Cardápio pouco prático</option>
+          <option>Pedidos manuais no WhatsApp</option>
+          <option>Baixa presença digital</option>
+          <option>Outra oportunidade</option>
+        </select>
+      </label>
+
+      <div class="grid2">
+        <label>Status
+          <select id="status">
+            <option>Novo</option>
+            <option>Contato realizado</option>
+            <option>Respondeu</option>
+            <option>Apresentação enviada</option>
+            <option>Negociação</option>
+            <option>Fechado</option>
+            <option>Sem interesse</option>
+          </select>
+        </label>
+        <label>Próximo follow-up
+          <input id="followup" type="date" />
+        </label>
+      </div>
+
+      <label>Observações
+        <textarea id="observacoes" rows="4" placeholder="Anote detalhes da conversa, objeções e próximos passos."></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="button" class="secondary" id="cancelarModal">Cancelar</button>
+        <button class="primary" value="default">Salvar cliente</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="modalMensagem">
+    <div class="modal-head">
+      <div>
+        <small>Abordagem personalizada</small>
+        <h3>Mensagem para WhatsApp</h3>
+      </div>
+      <button type="button" class="icon-btn" id="fecharMensagem">×</button>
+    </div>
+    <textarea id="textoMensagem" rows="12"></textarea>
+    <div class="actions">
+      <button class="secondary" id="copiarMensagem">Copiar</button>
+      <button class="primary" id="abrirWhatsapp">Abrir WhatsApp</button>
+    </div>
+  </dialog>
+
+  <footer>
+    WAP Consultoria Digital • Sistema de Prospecção V1
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
