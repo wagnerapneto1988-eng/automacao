@@ -5,8 +5,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Painel Vó Sabina</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-brand">VS</div>
+    <span class="eyebrow">BUFFET VÓ SABINA</span>
+    <h2>Acesso administrativo</h2>
+    <p>Entre com o usuário criado no Supabase Authentication.</p>
+    <form id="loginForm">
+      <label>E-mail<input id="loginEmail" type="email" required placeholder="email@exemplo.com"></label>
+      <label>Senha<input id="loginPassword" type="password" required placeholder="••••••••"></label>
+      <button class="primary full">Entrar</button>
+      <small id="loginMsg"></small>
+    </form>
+  </div>
+</div>
 <div class="app">
   <aside class="sidebar">
     <div class="brand"><div class="mark">VS</div><div><b>Vó Sabina</b><small>Gestão & Clientes</small></div></div>
@@ -25,7 +40,7 @@
     <header class="top">
       <button id="menu">☰</button>
       <div><span class="eyebrow">BUFFET VÓ SABINA</span><h1 id="pageTitle">Visão geral</h1></div>
-      <div class="top-actions"><button class="wa-main" id="sendWhatsApp">◉ Enviar WhatsApp</button><button class="primary" id="newLead">+ Novo contato</button></div>
+      <div class="top-actions"><button class="secondary" id="logoutBtn">Sair</button><button class="wa-main" id="sendWhatsApp">◉ Enviar WhatsApp</button><button class="primary" id="newLead">+ Novo contato</button></div>
     </header>
 
     <section class="view active" id="dashboard">

@@ -12,3 +12,16 @@
   .wa-main{font-size:0;padding:12px;width:44px;height:44px}
   .wa-main:after{content:'◉';font-size:20px}
 }
+
+.login-screen{position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,#17341f,#071009 48%);z-index:100;display:grid;place-items:center;padding:22px}
+.login-screen.hidden{display:none}
+.login-card{width:min(420px,100%);background:#0e1710;border:1px solid #344438;border-radius:24px;padding:28px;box-shadow:0 30px 80px #0009}
+.login-card h2{margin:8px 0 8px;font-size:28px}
+.login-card p{color:var(--muted);line-height:1.5}
+.login-brand{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),#b87c12);color:#171005;font-size:22px;font-weight:900;margin-bottom:16px}
+#loginMsg{display:block;color:#ff9f96;margin-top:10px;min-height:16px}
+
+/* V4: prospecção pública */
+.kanban{overflow-x:auto;grid-template-columns:repeat(5,minmax(230px,1fr));padding-bottom:8px}
+.kanban .column{min-width:230px}
+@media(max-width:900px){.kanban{display:flex}.kanban .column{flex:0 0 260px}}
