@@ -1,1 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Painel Vó Sabina</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">VS</div><div><b>Vó Sabina</b><small>Gestão & Clientes</small></div></div>
+    <nav id="nav">
+      <button class="active" data-view="dashboard">▦ <span>Dashboard</span></button>
+      <button data-view="leads">◎ <span>Captação</span></button>
+      <button data-view="clientes">♙ <span>Clientes</span></button>
+      <button data-view="orcamentos">▤ <span>Orçamentos</span></button>
+      <button data-view="agenda">▣ <span>Agenda</span></button>
+      <button data-view="financeiro">R$ <span>Financeiro</span></button>
+    </nav>
+    <div class="legacy"><b>30 anos</b><span>de experiência em buffet</span></div>
+  </aside>
 
+  <main>
+    <header class="top">
+      <button id="menu">☰</button>
+      <div><span class="eyebrow">BUFFET VÓ SABINA</span><h1 id="pageTitle">Visão geral</h1></div>
+      <div class="top-actions"><button class="wa-main" id="sendWhatsApp">◉ Enviar WhatsApp</button><button class="primary" id="newLead">+ Novo contato</button></div>
+    </header>
+
+    <section class="view active" id="dashboard">
+      <div class="metrics">
+        <article><span>LEADS</span><strong id="mLeads">0</strong><small>potenciais clientes</small></article>
+        <article><span>ORÇAMENTOS</span><strong id="mQuotes">0</strong><small>em negociação</small></article>
+        <article><span>EVENTOS</span><strong id="mEvents">0</strong><small>confirmados</small></article>
+        <article><span>PREVISÃO</span><strong id="mRevenue">R$ 0</strong><small>contratos fechados</small></article>
+      </div>
+
+      <div class="grid2">
+        <article class="panel">
+          <div class="panel-head"><div><span class="eyebrow">FUNIL COMERCIAL</span><h2>Da oportunidade ao evento</h2></div></div>
+          <div class="funnel" id="funnel"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head"><div><span class="eyebrow">PRÓXIMOS</span><h2>Agenda</h2></div></div>
+          <div id="nextEvents"></div>
+        </article>
+      </div>
+
+      <article class="panel">
+        <div class="panel-head"><div><span class="eyebrow">AÇÃO COMERCIAL</span><h2>Contatos que precisam de retorno</h2></div><button class="secondary" data-go="leads">Ver captação</button></div>
+        <div class="tablewrap"><table><thead><tr><th>Cliente</th><th>Interesse</th><th>Status</th><th>Próxima ação</th></tr></thead><tbody id="followups"></tbody></table></div>
+      </article>
+    </section>
+
+    <section class="view" id="leads">
+      <div class="toolbar"><div><span class="eyebrow">CAPTAÇÃO DE CLIENTES</span><h2>Funil de oportunidades</h2></div><button class="primary" id="addLead2">+ Adicionar lead</button></div>
+      <div class="kanban" id="kanban"></div>
+    </section>
+
+    <section class="view" id="clientes">
+      <div class="toolbar"><div><span class="eyebrow">RELACIONAMENTO</span><h2>Clientes</h2></div></div>
+      <article class="panel"><div class="tablewrap"><table><thead><tr><th>Nome</th><th>Telefone</th><th>Evento</th><th>Status</th><th>WhatsApp</th></tr></thead><tbody id="clientsTable"></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="orcamentos">
+      <div class="toolbar"><div><span class="eyebrow">PROPOSTAS</span><h2>Orçamentos</h2></div></div>
+      <article class="panel"><div class="tablewrap"><table><thead><tr><th>Cliente</th><th>Evento</th><th>Convidados</th><th>Valor</th><th>Status</th></tr></thead><tbody id="quotesTable"></tbody></table></div></article>
+    </section>
+
+    <section class="view" id="agenda">
+      <div class="toolbar"><div><span class="eyebrow">ORGANIZAÇÃO</span><h2>Agenda de eventos</h2></div></div>
+      <div class="calendar" id="calendar"></div>
+    </section>
+
+    <section class="view" id="financeiro">
+      <div class="toolbar"><div><span class="eyebrow">CONTROLE</span><h2>Financeiro</h2></div></div>
+      <div class="metrics" id="financeMetrics"></div>
+      <article class="panel"><div class="tablewrap"><table><thead><tr><th>Cliente</th><th>Total</th><th>Entrada</th><th>Saldo</th><th>Situação</th></tr></thead><tbody id="financeTable"></tbody></table></div></article>
+    </section>
+  </main>
+</div>
+
+<div class="modalbg" id="modalbg">
+  <form class="modal" id="leadForm">
+    <div class="modalhead"><div><span class="eyebrow">NOVO CONTATO</span><h2>Adicionar oportunidade</h2></div><button type="button" id="close">×</button></div>
+    <div class="two"><label>Nome<input id="name" required></label><label>WhatsApp<input id="phone" placeholder="11999999999" required></label></div>
+    <div class="two"><label>Tipo de evento<select id="eventType"><option>Casamento</option><option>Aniversário</option><option>Confraternização</option><option>Corporativo</option><option>Encomenda</option><option>Outro</option></select></label><label>Convidados<input id="guests" type="number" min="1"></label></div>
+    <div class="two"><label>Data<input id="date" type="date"></label><label>Valor estimado<input id="value" type="number" min="0" step="0.01"></label></div>
+    <label>Origem<select id="source"><option>WhatsApp</option><option>Instagram</option><option>Indicação</option><option>Site</option><option>Prospecção</option></select></label>
+    <label>Observações<textarea id="notes" rows="3"></textarea></label>
+    <button class="primary full">Salvar contato</button>
+  </form>
+</div>
+<script src="app.js"></script>
+</body></html>
