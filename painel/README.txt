@@ -1,17 +1,22 @@
-PAINEL VÓ SABINA V4 — SUPABASE + PROSPECÇÃO
+PAINEL VÓ SABINA V5 — LOGIN POR USUÁRIO
 
-Agora a aba Captação lê DUAS tabelas:
-- leads
-- prospeccao_clientes
+A tela agora pede:
+Usuário
+Senha
 
-A primeira coluna mostra as oportunidades públicas do banco.
-Botão "Virar lead" copia a oportunidade para a tabela leads e marca a prospecção como contatada.
-Também mostra link da fonte quando disponível.
+Internamente:
+admin -> admin@vosabina.local
 
 IMPORTANTE:
-Substitua NO GITHUB os 3 arquivos da pasta painel:
-- index.html
-- style.css
-- app.js
+No Supabase Authentication > Users, crie:
+E-mail: admin@vosabina.local
+Senha: uma senha forte escolhida por você
 
-Se o navegador continuar mostrando os 3 contatos antigos, faça Ctrl+F5 para limpar o cache.
+Depois, no painel, digite apenas:
+Usuário: admin
+Senha: a senha criada no Supabase
+
+Substitua no GitHub:
+painel/index.html
+painel/app.js
+painel/style.css

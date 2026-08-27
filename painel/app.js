@@ -31,7 +31,8 @@ async function ensureSession(){
 
 document.querySelector('#loginForm').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  const email=document.querySelector('#loginEmail').value.trim();
+  const username=document.querySelector('#loginUser').value.trim().toLowerCase();
+  const email = username.includes('@') ? username : `${username}@vosabina.local`;
   const password=document.querySelector('#loginPassword').value;
   const msg=document.querySelector('#loginMsg');
   msg.textContent='Entrando...';
