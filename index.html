@@ -1,171 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WAP Prospecção V1</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buffet Vó Sabina | Eventos</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>WAP Prospecção</h1>
-      <p>V1 • Gestão comercial para pizzarias</p>
-    </div>
-    <button id="btnNovo" class="primary">+ Novo potencial cliente</button>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <span class="badge">Painel Comercial</span>
-        <h2>Organize contatos, gere abordagens e acompanhe oportunidades.</h2>
-        <p>Uma ferramenta simples para transformar prospecção em processo.</p>
-      </div>
-    </section>
+<div class="site" id="inicio">
+  <img class="layout" src="assets/layout.jpg" alt="Buffet Vó Sabina">
 
-    <section class="cards" id="cardsResumo">
-      <article class="card"><span>Total</span><strong id="mTotal">0</strong></article>
-      <article class="card"><span>Contatados</span><strong id="mContatados">0</strong></article>
-      <article class="card"><span>Responderam</span><strong id="mResponderam">0</strong></article>
-      <article class="card"><span>Propostas</span><strong id="mPropostas">0</strong></article>
-      <article class="card destaque"><span>Fechados</span><strong id="mFechados">0</strong></article>
-    </section>
+  <!-- NAV clicável sem alterar o visual -->
+  <button class="hotspot nav-inicio" data-section="inicio" aria-label="Início"></button>
+  <button class="hotspot nav-sobre" data-section="sobre" aria-label="Sobre Nós"></button>
+  <button class="hotspot nav-servicos" data-section="servicos" aria-label="Serviços"></button>
+  <button class="hotspot nav-eventos" data-section="eventos" aria-label="Eventos"></button>
+  <button class="hotspot nav-galeria" data-section="galeria" aria-label="Galeria"></button>
+  <button class="hotspot nav-depoimentos" data-section="depoimentos" aria-label="Depoimentos"></button>
+  <button class="hotspot nav-contato" data-section="contato" aria-label="Contato"></button>
 
-    <section class="toolbar">
-      <input id="busca" type="search" placeholder="Buscar por pizzaria, bairro ou cidade..." />
-      <select id="filtroStatus">
-        <option value="">Todos os status</option>
-        <option>Novo</option>
-        <option>Contato realizado</option>
-        <option>Respondeu</option>
-        <option>Apresentação enviada</option>
-        <option>Negociação</option>
-        <option>Fechado</option>
-        <option>Sem interesse</option>
-      </select>
-    </section>
+  <!-- CTAs clicáveis -->
+  <a class="hotspot orçamento-top" id="orcamentoTop" href="#" aria-label="Quero um orçamento"></a>
+  <a class="hotspot orçamento-main" id="orcamentoMain" href="#" aria-label="Quero um orçamento agora"></a>
+  <button class="hotspot galeria-main" data-section="galeria" aria-label="Ver galeria"></button>
+  <button class="hotspot doces-main" data-section="doces" aria-label="Ver doces gourmet"></button>
 
-    <section class="panel">
-      <div class="panel-head">
-        <h3>Potenciais clientes</h3>
-        <span id="contadorLeads">0 registros</span>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Empresa</th>
-              <th>Local</th>
-              <th>Contato</th>
-              <th>Oportunidade</th>
-              <th>Status</th>
-              <th>Follow-up</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody id="listaLeads"></tbody>
-        </table>
-      </div>
-      <div id="vazio" class="empty">
-        <h4>Nenhum potencial cliente cadastrado.</h4>
-        <p>Cadastre a primeira pizzaria para começar sua prospecção.</p>
-      </div>
-    </section>
-  </main>
+  <!-- Ícone flutuante SOMENTE WhatsApp, sem número/texto -->
+  <a id="whatsappFloat" class="whatsapp-float" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path fill="currentColor" d="M16.1 3C9 3 3.2 8.7 3.2 15.8c0 2.5.7 4.9 2.1 7L3 29l6.4-2.1a13 13 0 0 0 6.7 1.8c7.1 0 12.9-5.7 12.9-12.9S23.2 3 16.1 3Zm0 23.4a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.8 1.2 1.2-3.7-.2-.4a10.5 10.5 0 1 1 8.6 4.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.7.1-.2.1-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2 2.2.9 3.1 1 4.2.8.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3Z"/>
+    </svg>
+  </a>
+</div>
 
-  <dialog id="modalLead">
-    <form id="formLead" method="dialog">
-      <div class="modal-head">
-        <div>
-          <small>Cadastro comercial</small>
-          <h3 id="tituloModal">Novo potencial cliente</h3>
-        </div>
-        <button type="button" class="icon-btn" id="fecharModal">×</button>
-      </div>
+<!-- Painel JS navegável -->
+<div class="panel-backdrop" id="panelBackdrop"></div>
+<aside class="panel" id="panel" aria-hidden="true">
+  <button class="close" id="closePanel" aria-label="Fechar">×</button>
+  <div id="panelContent"></div>
+</aside>
 
-      <input type="hidden" id="leadId" />
-
-      <div class="grid2">
-        <label>Nome da pizzaria
-          <input id="empresa" required placeholder="Ex.: Pizzaria Bella Massa" />
-        </label>
-        <label>Responsável
-          <input id="responsavel" placeholder="Ex.: Carlos" />
-        </label>
-        <label>WhatsApp
-          <input id="whatsapp" placeholder="5511999999999" />
-        </label>
-        <label>Instagram / Site
-          <input id="canal" placeholder="@pizzaria ou site" />
-        </label>
-        <label>Bairro
-          <input id="bairro" placeholder="Ex.: Perdizes" />
-        </label>
-        <label>Cidade
-          <input id="cidade" placeholder="Ex.: São Paulo" />
-        </label>
-      </div>
-
-      <label>Oportunidade identificada
-        <select id="oportunidade">
-          <option>Sem site</option>
-          <option>Site desatualizado</option>
-          <option>Somente Instagram</option>
-          <option>Cardápio pouco prático</option>
-          <option>Pedidos manuais no WhatsApp</option>
-          <option>Baixa presença digital</option>
-          <option>Outra oportunidade</option>
-        </select>
-      </label>
-
-      <div class="grid2">
-        <label>Status
-          <select id="status">
-            <option>Novo</option>
-            <option>Contato realizado</option>
-            <option>Respondeu</option>
-            <option>Apresentação enviada</option>
-            <option>Negociação</option>
-            <option>Fechado</option>
-            <option>Sem interesse</option>
-          </select>
-        </label>
-        <label>Próximo follow-up
-          <input id="followup" type="date" />
-        </label>
-      </div>
-
-      <label>Observações
-        <textarea id="observacoes" rows="4" placeholder="Anote detalhes da conversa, objeções e próximos passos."></textarea>
-      </label>
-
-      <div class="actions">
-        <button type="button" class="secondary" id="cancelarModal">Cancelar</button>
-        <button class="primary" value="default">Salvar cliente</button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog id="modalMensagem">
-    <div class="modal-head">
-      <div>
-        <small>Abordagem personalizada</small>
-        <h3>Mensagem para WhatsApp</h3>
-      </div>
-      <button type="button" class="icon-btn" id="fecharMensagem">×</button>
-    </div>
-    <textarea id="textoMensagem" rows="12"></textarea>
-    <div class="actions">
-      <button class="secondary" id="copiarMensagem">Copiar</button>
-      <button class="primary" id="abrirWhatsapp">Abrir WhatsApp</button>
-    </div>
-  </dialog>
-
-  <footer>
-    WAP Consultoria Digital • Sistema de Prospecção V1
-  </footer>
-
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
