@@ -1,0 +1,55 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Jogos educacionais em JavaScript para EAD, LMS, Moodle e gamificação.">
+<title>Jogos Educacionais | WAP EAD</title><link rel="stylesheet" href="styles.css"></head><body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-wap.png" alt="WAP Consultoria Digital">
+      <div class="brand-copy"><strong>WAP • LABORATÓRIO EAD</strong><small>Portfólio demonstrativo</small></div>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="jogos.html">Jogos</a>
+      <a href="plugins.html">Plugins</a>
+      <a href="modulos.html">Módulos EAD</a>
+      <a href="integracoes.html">Integrações</a>
+      <a class="cta" href="index.html#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+<section class="page-hero"><span class="kicker">LABORATÓRIO JAVASCRIPT</span><h1>Modelos de jogos educacionais</h1><p>Três experiências funcionais para demonstrar lógica, interação, feedback, memória e gamificação aplicáveis a ambientes EAD.</p></section>
+<section class="section" style="padding-top:10px">
+<div class="game-grid">
+  <article class="game"><span class="badge">JOGO 01</span><h3>Quiz LMS</h3><p>Pergunta, validação imediata e pontuação.</p>
+    <div class="game-panel"><strong>Qual linguagem é central no desenvolvimento de plugins Moodle?</strong>
+      <div id="quizOptions" class="option-grid" style="margin-top:14px"><button data-correct="false">Python</button><button data-correct="true">PHP</button><button data-correct="false">Swift</button><button data-correct="false">Kotlin</button></div>
+      <p class="feedback" id="quizFeedback">Escolha uma alternativa.</p><strong id="quizScore">Pontuação: 0</strong><br><button class="small-button" id="quizReset" style="margin-top:12px">Reiniciar</button>
+    </div>
+  </article>
+
+  <article class="game"><span class="badge">JOGO 02</span><h3>Memória Tech</h3><p>Encontre os pares de tecnologias do ecossistema EAD.</p>
+    <div class="game-panel"><div class="memory-grid" id="memoryGrid"></div><p id="memoryStatus" class="feedback">Pares: 0/4</p><button class="small-button" id="memoryReset">Embaralhar</button></div>
+  </article>
+
+  <article class="game"><span class="badge">JOGO 03</span><h3>Sequência de aprendizagem</h3><p>Observe e repita a sequência. Cada acerto adiciona um novo passo.</p>
+    <div class="game-panel"><div class="sequence"><button class="seq" data-color="blue"></button><button class="seq" data-color="green"></button><button class="seq" data-color="orange"></button><button class="seq" data-color="purple"></button></div><p id="seqStatus" class="feedback">Clique em iniciar.</p><button class="small-button" id="seqStart">Iniciar</button></div>
+  </article>
+
+  <article class="game"><span class="badge">EXPANSÃO</span><h3>Próximos jogos</h3><p>Espaço preparado para caça-palavras, arrastar-e-soltar, trilha, verdadeiro/falso, ranking, badges e atividades SCORM-like.</p>
+    <div class="game-panel"><div class="tags"><span>Drag & Drop</span><span>Ranking</span><span>Badges</span><span>Trilhas</span><span>Feedback</span></div></div>
+  </article>
+</div>
+</section>
+</main>
+<footer>
+  <div class="container footer-inner">
+    <strong>WAP Consultoria Digital • Laboratório EAD</strong>
+    <span>Moodle • LMS • EAD • JavaScript • PHP • MySQL • Linux</span>
+  </div>
+</footer>
+<script src="app.js"></script><script src="games.js"></script></body></html>
